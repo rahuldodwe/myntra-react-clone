@@ -3,21 +3,21 @@ import { createSlice } from "@reduxjs/toolkit";
 const fetchStatusSlice = createSlice({
   name: 'fetchStatus',
   initialState: {
-    fetchDone: false, // flase: 'PENDING' and trie: 'DONE'
+    fetchDone: false, // false: 'PENDING' and true: 'DONE'
     currentlyFetching: false,
   },
   reducers: {
-    markFetchDone: (store, action) => {
-      return store;
+    markFetchDone: (state) => {
+      return state.fetchDone = true;
     },
-    markFetchingStarted: (store, action) => {
-      return store;
+    markFetchingStarted: (state) => {
+      return state.currentlyFetching = true;
     },
-    markFetchingFinished: (store, action) => {
-      return store;
+    markFetchingFinished: (state) => {
+      return state.currentlyFetching = false;
     },
   }
 });
 
 export const fetchStatusActions = fetchStatusSlice.actions;
-export default fetchStatusSlice
+export default fetchStatusSlice;
